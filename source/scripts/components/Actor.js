@@ -34,13 +34,7 @@ var Actor = React.createClass({
         })
     },
     onClick: function() {
-        var dialogues = React.Children.map(this.props.children, function(child, index) {
-            return {
-                condition: child.props.condition,
-                text: child.props.children
-            }
-        })
-        console.log(dialogues[".0"].text)
+        console.log(this.props.children)
     }
 })
 
