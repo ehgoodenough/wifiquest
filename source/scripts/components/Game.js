@@ -13,6 +13,9 @@ var Game = React.createClass({
                         <Dialogue>
                             Hello World!
                         </Dialogue>
+                        <Dialogue>
+                            <b>Hiya World.</b>
+                        </Dialogue>
                     </Actor>
                 </Scene>
             </GameFrame>

@@ -15,7 +15,8 @@ var Actor = React.createClass({
     },
     render: function() {
         return (
-            <div style={this.renderStyles()}
+            <div onClick={this.onClick}
+                 style={this.renderStyles()}
                  className={this.renderClasses()}/>
         )
     },
@@ -31,6 +32,15 @@ var Actor = React.createClass({
         return React.addons.classSet({
             "actor": true
         })
+    },
+    onClick: function() {
+        var dialogues = React.Children.map(this.props.children, function(child, index) {
+            return {
+                condition: child.props.condition,
+                text: child.props.children
+            }
+        })
+        console.log(dialogues[".0"].text)
     }
 })
 
