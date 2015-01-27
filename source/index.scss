@@ -3,7 +3,14 @@
     margin: 0px;
 }
 
+@import "./styles/components/GameFrame.scss";
+
 body
 {
 	background-color: #111;
+    
+    #game-frame
+    {
+        background-color: #EEE;
+    }
 }
