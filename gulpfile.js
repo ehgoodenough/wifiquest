@@ -3,7 +3,7 @@ var gulp_if = require("gulp-if")
 var gulp_util = require("gulp-util")
 var gulp_sass = require("gulp-sass")
 var gulp_uglify = require("gulp-uglify")
-var gulp_livereload = require("gulp-livereload")
+var gulp_connect = require("gulp-connect")
 var gulp_minify_css = require("gulp-minify-css")
 var gulp_minify_html = require("gulp-minify-html")
 var gulp_prefixify_css = require("gulp-autoprefixer")
@@ -12,7 +12,6 @@ var gulp_json_transform = require("gulp-json-transform")
 var del = require("del")
 var yargs = require("yargs")
 var chalk = require("chalk")
-var express = require("express")
 var vinyl_buffer = require("vinyl-buffer")
 var vinyl_source = require("vinyl-source-stream")
 
@@ -43,7 +42,7 @@ gulp.task("scripts", function()
         .pipe(vinyl_buffer())
         .pipe(gulp_if(yargs.argv.truncate, gulp_uglify()))
         .pipe(gulp.dest("./gulps"))
-        .pipe(gulp_livereload())
+        .pipe(gulp_connect.reload())
 })
 
 gulp.task("styles", function()
@@ -54,7 +53,7 @@ gulp.task("styles", function()
         .pipe(gulp_prefixify_css())
         .pipe(gulp_if(yargs.argv.truncate, gulp_minify_css()))
         .pipe(gulp.dest("./gulps"))
-        .pipe(gulp_livereload())
+        .pipe(gulp_connect.reload())
 })
 
 gulp.task("markup", function()
@@ -62,14 +61,14 @@ gulp.task("markup", function()
     gulp.src("./source/index.html")
         .pipe(gulp_if(yargs.argv.truncate, gulp_minify_html()))
         .pipe(gulp.dest("./gulps"))
-        .pipe(gulp_livereload())
+        .pipe(gulp_connect.reload())
 })
 
 gulp.task("assets", function()
 {
     gulp.src("./source/assets/**/*", {base: "./source"})
         .pipe(gulp.dest("./gulps"))
-        .pipe(gulp_livereload())
+        .pipe(gulp_connect.reload())
 })
 
 gulp.task("configs", function()
@@ -94,16 +93,16 @@ gulp.task("default", function()
 
 gulp.task("watch", function()
 {
-    server = express()
-    server.use(express.static("./gulps"))
-    server.listen(1271)
-    
-    gulp_livereload.listen()
+    gulp_connect.server({
+        root: "./gulps",
+        livereload: true
+    })
 
     gulp.watch("./source/**/*.js", ["scripts"])
     gulp.watch("./source/**/*.scss", ["styles"])
     gulp.watch("./source/index.html", ["markup"])
     gulp.watch("./source/assets/**/*", ["assets"])
+    gulp.watch("./package.json", ["configs"])
 })
 
 function on_error(error)
