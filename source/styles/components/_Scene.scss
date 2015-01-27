@@ -1,13 +1,24 @@
 .scene
 {
-    width: 100%;
-    height: 100%;
+    width: 20em;
+    height: 15em;
+    float: left;
     position: relative;
-    background-color: blue;
+    background-color: skyblue;
     
     .actor
     {
         position: absolute;
         background-color: red;
+    }
+    
+    &:first-of-type
+    {
+        background-color: orange;
+    }
+    
+    &:last-of-type
+    {
+        background-color: green;
     }
 }
