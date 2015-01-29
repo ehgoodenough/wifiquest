@@ -1,8 +1,8 @@
-var PlayerStore = require("<scripts>/stores/PlayerStore")
+var CameraStore = require("<scripts>/stores/CameraStore")
 
 var Camera = React.createClass({
     mixins: [
-        Reflux.connect(PlayerStore, "player")
+        Reflux.connect(CameraStore, "camera")
     ],
     render: function() {
         return (
@@ -14,7 +14,7 @@ var Camera = React.createClass({
     },
     renderStyles: function() {
         return {
-            left: this.state.player.position.x * -1 + "em"
+            left: this.state.camera.position.x * -1 + "em"
         }
     },
     renderClasses: function() {
