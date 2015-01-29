@@ -7,7 +7,7 @@ var PlayerButtons = React.createClass({
         )
     },
     onClick: function() {
-        PlayerActions.MovePlayerToNextScene()
+        PlayerActions.IncrementPlayerPosition(20)
     }
 })
 
