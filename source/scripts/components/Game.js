@@ -1,6 +1,9 @@
 var Camera = require("<scripts>/components/Camera")
 var GameFrame = require("<scripts>/components/GameFrame")
 
+var PlayerStore = require("<scripts>/stores/PlayerStore")
+var PlayerButtons = require("<scripts>/components/PlayerButtons")
+
 var SceneStore = require("<scripts>/stores/SceneStore")
 
 var Game = React.createClass({
@@ -13,6 +16,7 @@ var Game = React.createClass({
                 <Camera>
                     {this.state.scenes}
                 </Camera>
+                <PlayerButtons/>
             </GameFrame>
         )
     }
