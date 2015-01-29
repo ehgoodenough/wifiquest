@@ -1,5 +1,4 @@
 var Actor = require("<scripts>/components/Actor")
-var Dialogue = require("<scripts>/components/Dialogue")
 var Scene = require("<scripts>/components/Scene")
 
 var SceneStore = Reflux.createStore({
