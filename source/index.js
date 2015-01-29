@@ -8,7 +8,7 @@ window.WIDTH = 20
 window.HEIGHT = 15
 
 Math.roundToNearest = function(value, multiplicand) {
-    return Math.round(value / multiplicand) * multiplicand
+    return Math.floor(value / multiplicand) * multiplicand
 }
 
 var Game = require("<scripts>/components/Game")

@@ -6,12 +6,6 @@
     position: relative;
     background-color: skyblue;
     
-    .actor
-    {
-        position: absolute;
-        background-color: red;
-    }
-    
     &:first-of-type
     {
         background-color: orange;
@@ -21,4 +15,13 @@
     {
         background-color: green;
     }
+}
+
+.actor
+{
+    position: absolute;
+    background-color: red;
+    
+    transition-duration: 1.5s;
+    transition-property: left;
 }

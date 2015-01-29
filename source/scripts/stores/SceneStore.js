@@ -4,25 +4,19 @@ var Scene = require("<scripts>/components/Scene")
 var SceneStore = Reflux.createStore({
     data: [
         (
-            <Scene key={1}>
-                <Actor x={13} y={11}>
-                    Hello World!
-                </Actor>
-            </Scene>
+            <Actor x={13} y={11}>
+                Hello World!
+            </Actor>
         ),
         (
-            <Scene key={2}>
-                <Actor x={12} y={11}>
-                    How are you doing?
-                </Actor>
-            </Scene>
+            <Actor x={12+20} y={11}>
+                How are you doing?
+            </Actor>
         ),
         (
-            <Scene key={3}>
-                <Actor x={13} y={11}>
-                    How are you doing?
-                </Actor>
-            </Scene>
+            <Actor x={13+20+20} y={11}>
+                How are you doing?
+            </Actor>
         )
     ],
     getData: function() {

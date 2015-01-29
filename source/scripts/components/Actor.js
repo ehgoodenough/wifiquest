@@ -1,4 +1,9 @@
+var CameraStore = require("<scripts>/stores/CameraStore")
+
 var Actor = React.createClass({
+    mixins: [
+        Reflux.connect(CameraStore, "camera")
+    ],
     propTypes: {
         x: React.PropTypes.number,
         y: React.PropTypes.number,
@@ -15,14 +20,15 @@ var Actor = React.createClass({
     },
     render: function() {
         return (
-            <div onClick={this.onClick}
-                 style={this.renderStyles()}
-                 className={this.renderClasses()}/>
+            <div style={this.renderStyles()}
+                 className={this.renderClasses()}
+                 onClick={this.handleClick}/>
         )
     },
     renderStyles: function() {
+        console.log(this.state.camera)
         return {
-            left: this.props.x + "em",
+            left: this.state.camera.x + this.props.x + "em",
             top: this.props.y + "em",
             width: this.props.width + "em",
             height: this.props.height + "em"
@@ -33,7 +39,7 @@ var Actor = React.createClass({
             "actor": true
         })
     },
-    onClick: function() {
+    handleClick: function() {
         console.log(this.props.children)
     }
 })
