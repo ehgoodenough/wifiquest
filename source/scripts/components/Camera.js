@@ -14,7 +14,7 @@ var Camera = React.createClass({
     },
     renderStyles: function() {
         return {
-            left: this.state.player.position * 20 * -1 + "em"
+            left: this.state.player.position * -1 + "em"
         }
     },
     renderClasses: function() {
