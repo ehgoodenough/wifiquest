@@ -1,21 +1,21 @@
-var Actor = require("<scripts>/components/Actor")
+var Character = require("<scripts>/components/Character")
 
 var SceneStore = Reflux.createStore({
     data: [
         (
-            <Actor x={13} y={11} z={2}>
+            <Character key={1} x={13} y={11} z={2}>
                 Hello World!
-            </Actor>
+            </Character>
         ),
         (
-            <Actor x={12+20} y={11} z={1}>
+            <Character key={2} x={12+20} y={11} z={1}>
                 How are you doing?
-            </Actor>
+            </Character>
         ),
         (
-            <Actor x={13+20+20} y={11} z={1}>
+            <Character key={3} x={13+20+20} y={11} z={1}>
                 How are you doing?
-            </Actor>
+            </Character>
         )
     ],
     getData: function() {

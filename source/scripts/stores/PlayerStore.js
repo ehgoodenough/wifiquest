@@ -11,11 +11,9 @@ var PlayerStore = Reflux.createStore({
     listenables: [
         PlayerActions
     ],
-    onIncrementPlayerPosition: function() {
+    onMovePlayerToNextScene: function() {
         var scene = Math.floor(this.data.x / WIDTH) + 1
-        if(scene > 3 - 1) {
-            scene = 3 - 1
-        }
+        if(scene > 3 - 1) {scene = 3 - 1}
         this.data.x = scene * WIDTH
         this.retrigger()
     }

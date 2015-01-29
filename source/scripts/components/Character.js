@@ -1,6 +1,6 @@
 var CameraStore = require("<scripts>/stores/CameraStore")
 
-var Actor = React.createClass({
+var Character = React.createClass({
     mixins: [
         Reflux.connect(CameraStore, "camera")
     ],
@@ -35,7 +35,7 @@ var Actor = React.createClass({
     },
     renderClasses: function() {
         return React.addons.classSet({
-            "actor": true
+            "character": true
         })
     },
     handleClick: function() {
@@ -43,4 +43,4 @@ var Actor = React.createClass({
     }
 })
 
-module.exports = Actor
+module.exports = Character
