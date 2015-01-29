@@ -7,9 +7,5 @@ window.Reflux.StoreMethods.retrigger = function() {if(this.getData) {this.trigge
 window.WIDTH = 20
 window.HEIGHT = 15
 
-Math.roundToNearest = function(value, multiplicand) {
-    return Math.floor(value / multiplicand) * multiplicand
-}
-
 var Game = require("<scripts>/components/Game")
 React.render(<Game/>, document.body)

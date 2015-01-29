@@ -8,7 +8,7 @@ var Actor = React.createClass({
         x: React.PropTypes.number,
         y: React.PropTypes.number,
         width: React.PropTypes.number,
-        height: React.PropTypes.number,
+        height: React.PropTypes.number
     },
     getDefaultProps: function() {
         return {
@@ -26,10 +26,9 @@ var Actor = React.createClass({
         )
     },
     renderStyles: function() {
-        console.log(this.state.camera)
         return {
-            left: this.state.camera.x + this.props.x + "em",
-            top: this.props.y + "em",
+            left: (this.state.camera.x / this.props.z) + this.props.x + "em",
+            top: (this.state.camera.y / this.props.z) + this.props.y + "em",
             width: this.props.width + "em",
             height: this.props.height + "em"
         }

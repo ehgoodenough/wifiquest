@@ -10,8 +10,8 @@ var CameraStore = Reflux.createStore({
     },
     init: function() {
         this.listenTo(PlayerStore, function(data) {
-            this.data.x = Math.roundToNearest(data.x, WIDTH) * -1
-            this.data.y = Math.roundToNearest(data.y, HEIGHT) * -1
+            this.data.x = Math.floor(data.x / WIDTH) * WIDTH * -1
+            this.data.y = Math.floor(data.y / HEIGHT) * HEIGHT * -1
             this.retrigger()
         }.bind(this))
     }
