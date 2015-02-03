@@ -1,5 +1,6 @@
 var PlayerActions = Reflux.createActions([
-    "MovePlayerToNextScene"
+    "MovePlayerToNextScene",
+    "MovePlayerToPreviousScene"
 ])
 
 module.exports = PlayerActions

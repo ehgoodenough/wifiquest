@@ -2,7 +2,7 @@ var Camera = require("<scripts>/components/Camera")
 var GameFrame = require("<scripts>/components/GameFrame")
 
 var PlayerStore = require("<scripts>/stores/PlayerStore")
-var PlayerButtons = require("<scripts>/components/PlayerButtons")
+var PlayerButton = require("<scripts>/components/PlayerButton")
 
 var SceneStore = require("<scripts>/stores/SceneStore")
 
@@ -14,7 +14,8 @@ var Game = React.createClass({
         return (
             <GameFrame ratio="4x3">
                 {this.state.scenes}
-                <PlayerButtons/>
+                <PlayerButton direction="previous"/>
+                <PlayerButton direction="next"/>
             </GameFrame>
         )
     }
