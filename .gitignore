@@ -3,6 +3,8 @@ bower_components
 node_webkit_parts
 
 gulps
+ghpages
+nwapps
 
 *.log
 .DS_Store
