@@ -7,16 +7,21 @@
     margin: auto;
     position: absolute;
     
-    border-radius: 0.25em;
-    background-color: purple;
+    cursor: pointer;
+    border-radius: 2em;
+    background-color: #4B0082;
     
     &.next
     {
-        right: 1em;
+        right: 0.5em;
     }
     
     &.previous
     {
-        left: 1em;
+        left: 0.5em;
+    }
+    
+    &:hover {
+        background-color: #8000DB;
     }
 }
