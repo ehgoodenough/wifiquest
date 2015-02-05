@@ -13,13 +13,9 @@ var Game = React.createClass({
     render: function() {
         return (
             <GameFrame>
-                <div style={{
-                    width: "1em",
-                    height: "1em",
-                    top: "0em",
-                    left: "0em",
-                    position: "absolute"
-                }}/>
+                {this.state.things}
+                <PlayerButton direction="previous"/>
+                <PlayerButton direction="next"/>
             </GameFrame>
         )
     }
