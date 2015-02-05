@@ -3,9 +3,10 @@
     margin: 0px;
 }
 
-@import "./styles/components/Thing.scss";
+@import "./styles/references/Fonts.scss";
 @import "./styles/components/GameFrame.scss";
 @import "./styles/components/PlayerButtons.scss";
+@import "./styles/components/Thing.scss";
 
 body
 {
@@ -13,6 +14,7 @@ body
     
     #game-frame
     {
+        font-family: goldfish;
         background-color: #99D9EA;
     }
 }
