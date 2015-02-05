@@ -17,7 +17,8 @@ var Thing = React.createClass({
             y: 0,
             width: 1,
             height: 1,
-            image: ""
+            image: "",
+            color: ""
         }
     },
     render: function() {
@@ -34,7 +35,7 @@ var Thing = React.createClass({
             width: this.props.width + "em",
             height: this.props.height + "em",
             backgroundImage: "url(" + this.props.image + ")",
-            backgroundColor: this.props.image == "" ? "red" : ""
+            backgroundColor: this.props.color
         }
     },
     renderClasses: function() {
