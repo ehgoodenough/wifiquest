@@ -4,10 +4,12 @@ var ThingStore = Reflux.createStore({
     data: (
         <div className="all-things">
             <Thing key={1}
-                x={0} y={0} z={7} width={30} height={15}
+                x={0} y={0} z={7}
+                width={WIDTH*3} height={HEIGHT}
                 image={"./assets/images/backbackground.jpg"}/>
             <Thing key={2}
-                x={0} y={7} z={3} width={30} height={10}
+                x={0} y={5} z={3}
+                width={WIDTH*3} height={HEIGHT}
                 image={"./assets/images/background.png"}/>
             <Thing key={3} color="red"
                 x={4.5} y={15-5} z={1}
