@@ -40,7 +40,7 @@ var ThingStore = Reflux.createStore({
                     Are you looking for the black box?
                 </div>
             </Thing>
-            <Thing color="black" x={WIDTH*4.5-1.5} y={HEIGHT-8.5} z={1} width={4} height={5}>
+            <Thing x={WIDTH*4.5-3.5} y={HEIGHT-12.5} z={1} width={10} height={10} image={"./assets/images/router.png"}>
                 <div condition="4" execute="win">
                     ...Congratulations. You have won.
                 </div>
