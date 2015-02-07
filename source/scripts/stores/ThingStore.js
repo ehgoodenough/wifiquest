@@ -13,17 +13,10 @@ var ThingStore = Reflux.createStore({
                 image={"./assets/images/background.png"}/>
 
             <Thing
-                x={0} y={0} z={1}
-                width={WIDTH*2} height={HEIGHT}
-                image={"./assets/images/ground1.png"}/>
-            <Thing
-                x={WIDTH*2} y={0} z={1}
-                width={WIDTH*2} height={HEIGHT}
-                image={"./assets/images/ground2.png"}/>
-            <Thing
-                x={WIDTH*4} y={0} z={1}
-                width={WIDTH*2} height={HEIGHT}
-                image={"./assets/images/ground3.png"}/>
+                x={-1} y={7} z={1}
+                width={WIDTH*6} height={HEIGHT}
+                image={"./assets/images/ground.svg"}/>
+
             <Thing color="red"
                 x={WIDTH*1.5-0.5} y={HEIGHT-6.5} z={1}
                 width={2} height={3}>
