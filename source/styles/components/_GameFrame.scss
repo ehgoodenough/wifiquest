@@ -51,7 +51,7 @@
 
 @media(min-aspect-ratio: 2/3)
 {
-    #game-frame._3x5
+    #game-frame._2x3
     {
         width: (2/3)*100vh;
         height: 100vh;
@@ -61,10 +61,33 @@
 
 @media(max-aspect-ratio: 2/3)
 {
-    #game-frame._3x5
+    #game-frame._2x3
     {
         width: 100vw;
         height: (3/2)*100vw;
         font-size: ((3/2)*100vw)/15;
+    }
+}
+
+
+
+
+@media(min-aspect-ratio: 3/4)
+{
+    #game-frame._3x4
+    {
+        width: (3/4)*100vh;
+        height: 100vh;
+        font-size: ((3/4)*100vh)/15;
+    }
+}
+
+@media(max-aspect-ratio: 3/4)
+{
+    #game-frame._3x4
+    {
+        width: 100vw;
+        height: (4/3)*100vw;
+        font-size: ((4/3)*100vw)/20;
     }
 }

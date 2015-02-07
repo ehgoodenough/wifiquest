@@ -19,7 +19,7 @@ var Game = React.createClass({
     },
     render: function() {
         return (
-            <GameFrame>
+            <GameFrame ratio="3x4">
                 {this.state.things}
                 <PlayerButtons/>
                 <DialogueBox/>
