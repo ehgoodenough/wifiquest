@@ -54,6 +54,9 @@ var Thing = React.createClass({
                     if(child.props.condition) {
                         if(this.tags[child.props.condition]) {
                             dialogue = child.props.children
+                            if(child.props.trigger) {
+                                this.tags[child.props.trigger] = true
+                            }
                         }
                     } else {
                         dialogue = child.props.children
@@ -72,6 +75,6 @@ var Thing = React.createClass({
     }
 })
 
-window.tags = new Array()
+window.tags = {}
 
 module.exports = Thing
