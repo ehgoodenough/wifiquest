@@ -47,10 +47,31 @@ var Thing = React.createClass({
     handleClick: function(event) {
         if(this.props.children) {
             event.stopPropagation()
-            var text = this.props.children
-            DialogueActions.BeginDialogue(text)
+            
+            var dialogue = undefined
+            React.Children.forEach(this.props.children, function(child) {
+                if(dialogue == undefined) {
+                    if(child.props.condition) {
+                        if(this.tags[child.props.condition]) {
+                            dialogue = child.props.children
+                        }
+                    } else {
+                        dialogue = child.props.children
+                        if(child.props.trigger) {
+                            this.tags[child.props.trigger] = true
+                        }
+                    }
+                }
+            })
+            if(!dialogue) {
+                dialogue = "I have nothing to say."
+            }
+            
+            DialogueActions.BeginDialogue(dialogue)
         }
     }
 })
+
+window.tags = new Array()
 
 module.exports = Thing
