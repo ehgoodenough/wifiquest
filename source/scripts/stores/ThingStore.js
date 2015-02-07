@@ -42,7 +42,7 @@ var ThingStore = Reflux.createStore({
             </Thing>
             <Thing color="black" x={WIDTH*4.5-1.5} y={HEIGHT-8.5} z={1} width={4} height={5}>
                 <div condition="4" execute="win">
-                    Congratulations. You have won.
+                    ...Congratulations. You have won.
                 </div>
                 <div condition="2">
                     ...

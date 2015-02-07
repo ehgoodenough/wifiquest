@@ -1,4 +1,5 @@
 var PlayerActions = require("<scripts>/actions/PlayerActions")
+var PlaythroughActions = require("<scripts>/actions/PlaythroughActions")
 
 var PlayerStore = Reflux.createStore({
     data: {
@@ -9,7 +10,8 @@ var PlayerStore = Reflux.createStore({
         return this.data
     },
     listenables: [
-        PlayerActions
+        PlayerActions,
+        PlaythroughActions
     ],
     onMovePlayerToNextScene: function() {
         var scene = Math.floor(this.data.x / WIDTH) + 1
@@ -21,6 +23,10 @@ var PlayerStore = Reflux.createStore({
         var scene = Math.floor(this.data.x / WIDTH) - 1
         if(scene < 0) {scene = 0}
         this.data.x = scene * WIDTH
+        this.retrigger()
+    },
+    onWinGame: function() {
+        this.data.x = 0
         this.retrigger()
     }
 })

@@ -1,5 +1,6 @@
 var CameraStore = require("<scripts>/stores/CameraStore")
 var DialogueActions = require("<scripts>/actions/DialogueActions")
+var PlaythroughActions = require("<scripts>/actions/PlaythroughActions")
 
 var Thing = React.createClass({
     mixins: [
@@ -52,16 +53,34 @@ var Thing = React.createClass({
             React.Children.forEach(this.props.children, function(child) {
                 if(dialogue == undefined) {
                     if(child.props.condition) {
-                        if(this.tags[child.props.condition]) {
+                        if(tags[child.props.condition]) {
                             dialogue = child.props.children
                             if(child.props.trigger) {
-                                this.tags[child.props.trigger] = true
+                                tags[child.props.trigger] = true
+                            }
+                            if(child.props.execute) {
+                                if(child.props.execute == "win") {
+                                    setTimeout(function() {
+                                        tags = []
+                                        DialogueActions.EndDialogue()
+                                        PlaythroughActions.WinGame()
+                                    }, 1000 * 1.5)
+                                }
                             }
                         }
                     } else {
                         dialogue = child.props.children
                         if(child.props.trigger) {
-                            this.tags[child.props.trigger] = true
+                            tags[child.props.trigger] = true
+                        }
+                        if(child.props.execute) {
+                            if(child.props.execute == "win") {
+                                setTimeout(function() {
+                                    tags = []
+                                    DialogueActions.EndDialogue()
+                                    PlaythroughActions.WinGame()
+                                }, 1000 * 1.5)
+                            }
                         }
                     }
                 }
