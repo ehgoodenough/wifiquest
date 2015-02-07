@@ -5,8 +5,8 @@ window.Hammer = new (require("hammerjs"))(document.body)
 window.Reflux.StoreMethods.getInitialState = function() {if(this.getData) {return this.getData()}}
 window.Reflux.StoreMethods.retrigger = function() {if(this.getData) {this.trigger(this.getData())}}
 
-window.WIDTH = 10
-window.HEIGHT = 15
+window.WIDTH = 15
+window.HEIGHT = 20
 
 var Game = require("<scripts>/components/Game")
 React.render(<Game/>, document.body)
