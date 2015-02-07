@@ -1,25 +1,18 @@
 var PlayerActions = require("<scripts>/actions/PlayerActions")
 
+var MovePlayerToNextScene = PlayerActions.MovePlayerToNextScene
+var MovePlayerToPreviousScene = PlayerActions.MovePlayerToPreviousScene
+
 var PlayerButton = React.createClass({
     render: function() {
         return (
-            <div onClick={this.onClick}
-                 className={this.renderClasses()}/>
+            <div className="all-player-buttons">
+                <div className="next player-button"
+                    onClick={MovePlayerToNextScene}/>
+                <div className="previous player-button"
+                    onClick={MovePlayerToPreviousScene}/>
+            </div>
         )
-    },
-    renderClasses: function() {
-        return React.addons.classSet({
-            "next": this.props.direction == "next",
-            "previous": this.props.direction == "previous",
-            "player-button": true
-        })
-    },
-    onClick: function() {
-        if(this.props.direction == "next") {
-            PlayerActions.MovePlayerToNextScene()
-        } else if(this.props.direction == "previous") {
-            PlayerActions.MovePlayerToPreviousScene()
-        }
     }
 })
 

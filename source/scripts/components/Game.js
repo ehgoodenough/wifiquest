@@ -14,8 +14,7 @@ var Game = React.createClass({
         return (
             <GameFrame>
                 {this.state.things}
-                <PlayerButton direction="previous"/>
-                <PlayerButton direction="next"/>
+                <PlayerButton/>
             </GameFrame>
         )
     }
