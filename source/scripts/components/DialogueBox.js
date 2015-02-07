@@ -1,12 +1,22 @@
+var DialogueStore = require("<scripts>/stores/DialogueStore")
+
 var DialogueBox = React.createClass({
+    mixins: [
+        Reflux.connect(DialogueStore, "dialogue")
+    ],
     render: function() {
-        return (
-            <div className="dialogue-box">
-                <span>
-                    Hello World!
-                </span>
-            </div>
-        )
+        if(this.state.dialogue) {
+            console.log("!")
+            return (
+                <div className="dialogue-box">
+                    {this.state.dialogue}
+                </div>
+            )
+        } else {
+            return (
+                <div></div>
+            )
+        }
     }
 })
 
