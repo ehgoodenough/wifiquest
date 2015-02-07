@@ -16,6 +16,9 @@ var Game = React.createClass({
         Hammer.on("swiperight", function(event) {
             PlayerActions.MovePlayerToPreviousScene()
         })
+        Hammer.on("doubletap", function(event) {
+            Screenfull.toggle()
+        })
     },
     render: function() {
         return (

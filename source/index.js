@@ -1,6 +1,7 @@
 window.React = require("react/addons")
 window.Reflux = require("reflux")
 window.Hammer = new (require("hammerjs"))(document.body)
+window.Screenfull = require("screenfull")
 
 window.React.initializeTouchEvents(true)
 window.Reflux.StoreMethods.getInitialState = function() {if(this.getData) {return this.getData()}}
