@@ -6,7 +6,6 @@ var DialogueBox = React.createClass({
     ],
     render: function() {
         if(this.state.dialogue) {
-            console.log("!")
             return (
                 <div className="dialogue-box">
                     {this.state.dialogue}

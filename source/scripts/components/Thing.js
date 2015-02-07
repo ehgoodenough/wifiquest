@@ -44,8 +44,9 @@ var Thing = React.createClass({
             "thing": true
         })
     },
-    handleClick: function() {
+    handleClick: function(event) {
         if(this.props.children) {
+            event.stopPropagation()
             var text = this.props.children
             DialogueActions.BeginDialogue(text)
         }

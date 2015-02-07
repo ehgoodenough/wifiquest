@@ -4,6 +4,7 @@ var PlayerButtons = require("<scripts>/components/PlayerButtons")
 
 var ThingStore = require("<scripts>/stores/ThingStore")
 var PlayerActions = require("<scripts>/actions/PlayerActions")
+var DialogueActions = require("<scripts>/actions/DialogueActions")
 
 var Game = React.createClass({
     mixins: [
@@ -22,12 +23,15 @@ var Game = React.createClass({
     },
     render: function() {
         return (
-            <GameFrame ratio="3x4">
+            <GameFrame onClick={this.handleClick}>
                 {this.state.things}
                 <PlayerButtons/>
                 <DialogueBox/>
             </GameFrame>
         )
+    },
+    handleClick: function() {
+        DialogueActions.EndDialogue()
     }
 })
 
