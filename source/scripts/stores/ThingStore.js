@@ -14,21 +14,24 @@ var ThingStore = Reflux.createStore({
         ),
         (
             <Thing key={3} color="red"
-                   x={4.5} y={15-3} z={1}
+                   x={4.5} y={15-5} z={1}
                    width={1} height={1}>
-                   Hello!</Thing>
+                   Hello!
+            </Thing>
         ),
         (
             <Thing key={4} color="green"
-                   x={4.5+10-1} y={15-3} z={1}
+                   x={4.5+10} y={15-5} z={1}
                    width={1} height={1}>
-                   Hiya!</Thing>
+                   Hiya!
+            </Thing>
         ),
         (
             <Thing key={5} color="blue"
-                   x={4.5+10+10+1} y={15-3} z={1}
+                   x={4.5+10+10} y={15-5} z={1}
                    width={1} height={1}>
-                   Whatsup?</Thing>
+                   Whatsup?
+            </Thing>
         )
     ],
     getData: function() {
