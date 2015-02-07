@@ -3,25 +3,41 @@
     top: 0em;
     bottom: 0em;
     width: 1.25em;
-    height: 1.25em;
-    margin: auto;
     position: absolute;
-    
-    cursor: pointer;
-    border-radius: 3em;
-    background-color: #4B0082;
     
     &.next
     {
-        right: 0.5em;
+        right: 0em;
+        padding-right: 0.5em;
     }
     
     &.previous
     {
-        left: 0.5em;
+        left: 0em;
+        padding-left: 0.5em;
     }
     
-    &:hover {
-        background-color: #8000DB;
+    .button
+    {
+        font: inherit;
+        text-align: center;
+        line-height: 1.25em;
+        
+        top: 0em;
+        bottom: 0em;
+        margin: auto;
+        width: 1.25em;
+        height: 1.25em;
+        position: absolute;
+        
+        color: #EEE;
+        cursor: pointer;
+        border-radius: 3em;
+        background-color: #111;
+        
+        &:hover
+        {
+            background-color: purple;
+        }
     }
 }

@@ -2,7 +2,7 @@ var Camera = require("<scripts>/components/Camera")
 var GameFrame = require("<scripts>/components/GameFrame")
 
 var PlayerStore = require("<scripts>/stores/PlayerStore")
-var PlayerButton = require("<scripts>/components/PlayerButton")
+var PlayerButtons = require("<scripts>/components/PlayerButtons")
 
 var ThingStore = require("<scripts>/stores/ThingStore")
 
@@ -14,7 +14,7 @@ var Game = React.createClass({
         return (
             <GameFrame>
                 {this.state.things}
-                <PlayerButton/>
+                <PlayerButtons/>
             </GameFrame>
         )
     }
