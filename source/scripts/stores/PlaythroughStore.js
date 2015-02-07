@@ -11,7 +11,10 @@ var PlaythroughStore = Reflux.createStore({
         PlaythroughActions
     ],
     onBeginDialogue: function(dialogue) {
-        console.log(dialogue)
+        this.dialogue = dialogue
+    },
+    onEndDialogue: function() {
+        this.dialogue = undefined
     }
 })
 

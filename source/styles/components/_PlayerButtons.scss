@@ -42,7 +42,7 @@
             opacity: 0;
         }
         
-        &:not(.inactive):hover
+        &.active:hover
         {
             cursor: pointer;
             background-color: purple;
