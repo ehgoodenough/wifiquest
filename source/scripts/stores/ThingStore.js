@@ -20,21 +20,23 @@ var ThingStore = Reflux.createStore({
             <Thing color="red"
                 x={WIDTH*1.5-0.5} y={HEIGHT-6.5} z={1}
                 width={2} height={3}>
-                Hello!
+                Hello! I am a red box!
             </Thing>
             <Thing color="green"
                 x={WIDTH*2.5-0.5} y={HEIGHT-6.5} z={1}
                 width={2} height={3}>
-                Hiya!
+                Hiya! I am a green box!
             </Thing>
             <Thing color="blue"
                 x={WIDTH*3.5-0.5} y={HEIGHT-6.5} z={1}
                 width={2} height={3}>
-                Whatsup?
+                Whatsup? I am a blue box!!
             </Thing>
             <Thing color="black"
                 x={WIDTH*4.5-1.5} y={HEIGHT-8.5} z={1}
-                width={4} height={5}/>
+                width={4} height={5}>
+                ...
+            </Thing>
         </div>
     ),
     getData: function() {
