@@ -1,4 +1,6 @@
 var CameraStore = require("<scripts>/stores/CameraStore")
+var PlaythroughStore = require("<scripts>/stores/PlaythroughStore")
+var PlaythroughActions = require("<scripts>/actions/PlaythroughActions")
 
 var Thing = React.createClass({
     mixins: [
@@ -45,7 +47,8 @@ var Thing = React.createClass({
     },
     handleClick: function() {
         if(this.props.children) {
-            alert(this.props.children)
+            var text = this.props.children
+            PlaythroughActions.BeginDialogue(text)
         }
     }
 })
