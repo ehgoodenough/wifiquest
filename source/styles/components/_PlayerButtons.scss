@@ -2,50 +2,40 @@
 {
     top: 0em;
     bottom: 0em;
+    margin: auto;
     width: 1.75em;
+    height: 1.75em;
     position: absolute;
+    
+    border-radius: 0.2em;
+    background-color: #111;
+    background-size: 1.25em;
+    background-position: center;
+    background-repeat: no-repeat;
     
     &.next
     {
-        right: 0em;
-        padding-right: 0.5em;
+        right: 0.5em;
+        background-image: url("./assets/images/right-arrow.png")
     }
     
     &.previous
     {
-        left: 0em;
-        padding-left: 0.5em;
+        left: 0.5em;
+        background-image: url("./assets/images/left-arrow.png")
     }
     
-    .button
+    transition-duration: 0.5s;
+    transition-property: opacity;
+        
+    &.inactive
     {
-        font: inherit;
-        text-align: center;
-        line-height: 1.75em;
-        
-        top: 0em;
-        bottom: 0em;
-        margin: auto;
-        width: 1.75em;
-        height: 1.75em;
-        position: absolute;
-        
-        color: #EEE;
-        border-radius: 0.2em;
-        background-color: #111;
-        
-        transition-duration: 0.5s;
-        transition-property: opacity;
-        
-        &.inactive
-        {
-            opacity: 0;
-        }
-        
-        &.active:hover
-        {
-            cursor: pointer;
-            background-color: purple;
-        }
+        opacity: 0;
+    }
+    
+    &.active:hover
+    {
+        cursor: pointer;
+        background-color: purple;
     }
 }

@@ -9,26 +9,25 @@ var PlayerButtons = React.createClass({
         var camera = this.state.camera
         return (
             <div className="all-player-buttons">
-                <div className="next player-button"
-                    onClick={PlayerActions.MovePlayerToNextScene}>
-                    <div className={this.renderButtonClasses(camera.sx != 4)}>
-                        &#8680;
-                    </div>
-                </div>
-                <div className="previous player-button"
-                    onClick={PlayerActions.MovePlayerToPreviousScene}>
-                    <div className={this.renderButtonClasses(camera.sx != 0)}>
-                        &#8678;
-                    </div>
-                </div>
+                <div className={this.renderButtonClasses("next")}
+                    onClick={PlayerActions.MovePlayerToNextScene}/>
+                <div className={this.renderButtonClasses("previous")}
+                    onClick={PlayerActions.MovePlayerToPreviousScene}/>
             </div>
         )
     },
-    renderButtonClasses: function(isActive) {
+    renderButtonClasses: function(button) {
+        var camera = this.state.camera
+        var isNextButton = (button == "next")
+        var isPreviousButton = (button == "previous")
+        var isActive = (isNextButton && camera.sx != 4)
+                        || (isPreviousButton && camera.sx != 0)
         return React.addons.classSet({
-            "inactive": !isActive,
             "active": isActive,
-            "button": true
+            "inactive": !isActive,
+            "next": isNextButton,
+            "previous": isPreviousButton,
+            "player-button": true
         })
     }
 })
