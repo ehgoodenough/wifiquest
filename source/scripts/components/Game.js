@@ -1,4 +1,3 @@
-var Camera = require("<scripts>/components/Camera")
 var GameFrame = require("<scripts>/components/GameFrame")
 
 var PlayerStore = require("<scripts>/stores/PlayerStore")

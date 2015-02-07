@@ -31,12 +31,20 @@
         position: absolute;
         
         color: #EEE;
-        cursor: pointer;
         border-radius: 0.25em;
         background-color: #111;
         
-        &:hover
+        transition-duration: 0.5s;
+        transition-property: opacity;
+        
+        &.inactive
         {
+            opacity: 0;
+        }
+        
+        &:not(.inactive):hover
+        {
+            cursor: pointer;
             background-color: purple;
         }
     }
