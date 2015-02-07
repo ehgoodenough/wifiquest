@@ -1,7 +1,7 @@
 var GameFrame = React.createClass({
     getDefaultProps: function() {
         return {
-            ratio: "3x4"
+            ratio: "4x3"
         }
     },
     render: function() {

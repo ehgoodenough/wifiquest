@@ -23,15 +23,12 @@ var Game = React.createClass({
     },
     render: function() {
         return (
-            <GameFrame onClick={this.handleClick}>
+            <GameFrame ratio="3x4" onClick={DialogueActions.EndDialogue}>
                 {this.state.things}
                 <PlayerButtons/>
                 <DialogueBox/>
             </GameFrame>
         )
-    },
-    handleClick: function() {
-        DialogueActions.EndDialogue()
     }
 })
 

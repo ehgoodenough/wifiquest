@@ -8,4 +8,12 @@
     
     border-radius: 0.25em;
     background-color: #EEE;
+
+    transition-duration: 0.5s;
+    transition-property: opacity;
+
+    &.inactive
+    {
+    	opacity: 0;
+    }
 }
