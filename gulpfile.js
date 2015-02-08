@@ -9,16 +9,16 @@ var gulp_minify_html = require("gulp-minify-html")
 var gulp_prefixify_css = require("gulp-autoprefixer")
 var gulp_json_transform = require("gulp-json-transform")
 
+var browserify = require("browserify")
+var reactify = require("reactify")
+var envify = require("envify/custom")
+var aliasify = require("aliasify")
+
 var del = require("del")
 var yargs = require("yargs")
 var chalk = require("chalk")
 var vinyl_buffer = require("vinyl-buffer")
 var vinyl_source = require("vinyl-source-stream")
-
-var browserify = require("browserify")
-var reactify = require("reactify")
-var envify = require("envify/custom")
-var aliasify = require("aliasify")
 
 gulp.task("scripts", function()
 {
@@ -37,7 +37,7 @@ gulp.task("scripts", function()
             }
         }))
         .bundle()
-        .on('error', on_error)
+        .on("error", on_error)
         .pipe(vinyl_source("index.js"))
         .pipe(vinyl_buffer())
         .pipe(gulp_if(yargs.argv.minify, gulp_uglify()))
@@ -49,7 +49,7 @@ gulp.task("styles", function()
 {
     gulp.src("./source/index.scss")
         .pipe(gulp_sass())
-        .on('error', on_error)
+        .on("error", on_error)
         .pipe(gulp_prefixify_css())
         .pipe(gulp_if(yargs.argv.minify, gulp_minify_css()))
         .pipe(gulp.dest("./gulps"))
@@ -91,18 +91,14 @@ gulp.task("default", function()
     })
 })
 
-gulp.task("watch", function()
+gulp.task("watch", ["default"], function()
 {
     gulp_connect.server({
         root: "./gulps",
         livereload: true
     })
-
-    gulp.watch("./source/**/*.js", ["scripts"])
-    gulp.watch("./source/**/*.scss", ["styles"])
-    gulp.watch("./source/index.html", ["markup"])
-    gulp.watch("./source/assets/**/*", ["assets"])
-    gulp.watch("./package.json", ["configs"])
+    
+    gulp.watch("./source/**/*", ["default"])
 })
 
 function on_error(error)
