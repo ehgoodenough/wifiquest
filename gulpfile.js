@@ -98,7 +98,8 @@ gulp.task("watch", ["default"], function()
         livereload: true
     })
     
-    gulp.watch("./source/**/*", ["default"])
+    gulp.watch("./source/**/*.js", ["scripts"])
+    gulp.watch("./source/**/*.scss", ["styles"])
 })
 
 function on_error(error)
