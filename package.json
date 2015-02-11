@@ -14,7 +14,8 @@
     "react": "~0.12.2",
     "reflux": "~0.2.4",
     "screenfull": "~2.0.0",
-    "hammerjs": "~2.0.4"
+    "hammerjs": "~2.0.4",
+    "raf": "~2.0.4"
   },
   "devDependencies": {
     "aliasify": "~1.5.0",
