@@ -2,6 +2,7 @@ var GameFrame = require("<scripts>/components/GameFrame")
 var DialogueBox = require("<scripts>/components/DialogueBox")
 var PlayerButtons = require("<scripts>/components/PlayerButtons")
 
+var LoopStore = require("<scripts>/stores/LoopStore")
 var ThingStore = require("<scripts>/stores/ThingStore")
 var PlayerActions = require("<scripts>/actions/PlayerActions")
 var DialogueActions = require("<scripts>/actions/DialogueActions")

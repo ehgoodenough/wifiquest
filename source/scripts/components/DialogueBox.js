@@ -5,17 +5,17 @@ var DialogueBox = React.createClass({
         Reflux.connect(DialogueStore, "dialogue")
     ],
     render: function() {
-        this.state.redialogue = this.state.dialogue || this.state.redialogue
+        this.state.text = this.state.dialogue.bliptext || this.state.text
         return (
             <div className={this.renderClasses()}>
-                {this.state.redialogue}
+                {this.state.text}
             </div>
         )
     },
     renderClasses: function() {
         return React.addons.classSet({
-            "active": this.state.dialogue != undefined,
-            "inactive": this.state.dialogue == undefined,
+            "active": this.state.dialogue.active,
+            "inactive": !this.state.dialogue.active,
             "dialogue-box": true
         })
     }
