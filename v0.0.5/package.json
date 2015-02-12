@@ -1,0 +1,19 @@
+{
+  "name": "wifiquest",
+  "version": "0.0.5",
+  "main": "index.html",
+  "author": {
+    "name": "Andrew McPherson",
+    "email": "andrewmcp333@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/arcym/wifiquest.git"
+  },
+  "window": {
+    "title": "Wifi Quest",
+    "width": 640,
+    "height": 480,
+    "toolbar": false
+  }
+}
