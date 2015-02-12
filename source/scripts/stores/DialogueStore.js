@@ -17,9 +17,10 @@ var DialogueStore = Reflux.createStore({
     ],
     onBeginDialogue: function(text, speed) {
         this.data.active = true
+        this.data.speaking = true
         this.data.ticks = 0
         this.data.blip = 0
-        this.data.maxtick = 0.075 / (speed || 1)
+        this.data.maxtick = 0.05 / (speed || 1)
         
         this.data.text = text
         this.data.bliptext = []
@@ -35,24 +36,40 @@ var DialogueStore = Reflux.createStore({
             this.data.ticks += tick
             if(this.data.ticks > this.data.maxtick) {
                 this.data.ticks -= this.data.maxtick
-                var blip = this.data.blip += 1
-                this.data.bliptext = []
-                for(var index in this.data.text) {
-                    var text = this.data.text[index]
-                    if(React.addons.TestUtils.isElement(text)) {
-                        text = React.addons.cloneWithProps(text, {key: index})
-                        text.props.children = text.props.children.substr(0, blip)
-                        this.data.bliptext.push(text)
-                        blip -= text.props.children.length
-                    } else {
-                        this.data.bliptext.push(text.substr(0, blip))
-                        blip -= text.length
+                if(this.data.speaking) {
+                    var blip = this.data.blip += 1
+                    this.data.bliptext = []
+                    var newchar = ""
+                    for(var index in this.data.text) {
+                        var text = this.data.text[index]
+                        if(React.addons.TestUtils.isElement(text)) {
+                            text = React.addons.cloneWithProps(text, {key: index})
+                            var length = text.props.children.length
+                            text.props.children = text.props.children.substr(0, blip)
+                            if(text.props.children) {
+                                newchar = text.props.children.charAt(text.props.children.length - 1)
+                            }
+                            this.data.bliptext.push(text)
+                            blip -= length
+                        } else {
+                            var length = text.length
+                            text = text.substr(0, blip)
+                            if(text) {
+                                newchar = text.charAt(text.length - 1)
+                            }
+                            this.data.bliptext.push(text)
+                            blip -= length
+                        }
                     }
-                    if(blip <= 0) {
-                        break;
+                    if(blip >= 0) {
+                        this.data.speaking = false
                     }
+                    if(!new RegExp(/(\s)/).test(newchar)) {
+                        var sound = Math.floor(Math.random()*2)
+                        new Audio("./assets/sounds/blip" + sound + ".wav").play()
+                    }
+                    this.retrigger()
                 }
-                this.retrigger()
             }
         }
     }
