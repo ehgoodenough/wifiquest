@@ -65,8 +65,9 @@ var DialogueStore = Reflux.createStore({
                         this.data.speaking = false
                     }
                     if(!new RegExp(/(\s)/).test(newchar)) {
-                        var sound = Math.floor(Math.random()*2)
-                        new Audio("./assets/sounds/blip" + sound + ".wav").play()
+                        var sound = new Audio("./assets/sounds/blip" + Math.floor(Math.random()*2) + ".wav")
+                        sound.volume = 0.25
+                        sound.play()
                     }
                     this.retrigger()
                 }
