@@ -13,6 +13,7 @@ var browserify = require("browserify")
 var reactify = require("reactify")
 var envify = require("envify/custom")
 var aliasify = require("aliasify")
+var brfs = require("brfs")
 
 var del = require("del")
 var yargs = require("yargs")
@@ -36,6 +37,7 @@ gulp.task("scripts", function()
                 "<assets>": "./source/assets"
             }
         }))
+        .transform("brfs")
         .bundle()
         .on("error", on_error)
         .pipe(vinyl_source("index.js"))

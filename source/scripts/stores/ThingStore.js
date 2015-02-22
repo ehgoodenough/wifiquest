@@ -3,9 +3,9 @@ var Thing = require("<scripts>/components/Thing")
 var ThingStore = Reflux.createStore({
     data: (
         <div className="all-things">
-            <Thing x={-1} y={-2} z={7} width={WIDTH*5} height={HEIGHT} image={"./assets/images/backbackground.png"}/>
-            <Thing x={-1} y={2} z={7/2} width={WIDTH*5} height={HEIGHT} image={"./assets/images/background.png"}/>
-            <Thing x={-1} y={7} z={1} width={WIDTH*6} height={HEIGHT} image={"./assets/images/ground.png"}/>
+            <Thing x={-1} y={-2} z={7} width={WIDTH*5} height={HEIGHT} image={"data:image/png;base64," + require("fs").readFileSync("./source/assets/images/backbackground.png", "base64")}/>
+            <Thing x={-1} y={2} z={7/2} width={WIDTH*5} height={HEIGHT} image={"data:image/png;base64," + require("fs").readFileSync("./source/assets/images/background.png", "base64")}/>
+            <Thing x={-1} y={7} z={1} width={WIDTH*6} height={HEIGHT} image={"data:image/png;base64," + require("fs").readFileSync("./source/assets/images/ground.png", "base64")}/>
             <Thing color="red" x={WIDTH*1.5-0.5} y={HEIGHT-6.5} z={1} width={2} height={3}>
                 <div condition="2">
                     <b style={{color: "blue"}}>Blue</b> is just the best!
