@@ -6,7 +6,7 @@ var ThingStore = Reflux.createStore({
             <Thing x={-1} y={-2} z={7} width={WIDTH*5} height={HEIGHT} image={"data:image/png;base64," + require("fs").readFileSync("./source/assets/images/backbackground.png", "base64")}/>
             <Thing x={-1} y={2} z={7/2} width={WIDTH*5} height={HEIGHT} image={"data:image/png;base64," + require("fs").readFileSync("./source/assets/images/background.png", "base64")}/>
             <Thing x={-1} y={7} z={1} width={WIDTH*6} height={HEIGHT} image={"data:image/png;base64," + require("fs").readFileSync("./source/assets/images/ground.png", "base64")}/>
-            <Thing color="red" x={WIDTH*1.5-0.5} y={HEIGHT-6.5} z={1} width={2} height={3}>
+            <Thing image={"./assets/images/kitty.png"} x={WIDTH*1.5-3+0.5} y={HEIGHT-8} z={1} width={6} height={5}>
                 <div condition="2">
                     <b style={{color: "blue"}}>Blue</b> is just the best!
                 </div>
@@ -17,7 +17,7 @@ var ThingStore = Reflux.createStore({
                     Hello! I am a <b style={{color: "red"}}>red</b> box!
                 </div>
             </Thing>
-            <Thing color="green" x={WIDTH*2.5-0.5} y={HEIGHT-6.5} z={1} width={2} height={3}>
+            <Thing image={"./assets/images/turtle.png"} x={WIDTH*2.5-3+0.5} y={HEIGHT-8} z={1} width={6} height={5}>
                 <div condition="4">
                     Black can be a bit scary...
                 </div>
@@ -28,7 +28,7 @@ var ThingStore = Reflux.createStore({
                     Hiya! I am a <b style={{color: "green"}}>green</b> box!
                 </div>
             </Thing>
-            <Thing color="blue" x={WIDTH*3.5-0.5} y={HEIGHT-6.5} z={1} width={2} height={3}>
+            <Thing image={"./assets/images/rabbit.png"} x={WIDTH*3.5-1.5+0.5} y={HEIGHT-8.5} z={1} width={3} height={5}>
                 <div condition="3">
                     <b style={{color: "green"}}>Green</b> is absolutely fantastic.
                 </div>
