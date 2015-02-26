@@ -1,16 +1,11 @@
 var GameFrame = require("<scripts>/components/GameFrame")
-var DialogueBox = require("<scripts>/components/DialogueBox")
-var PlayerButtons = require("<scripts>/components/PlayerButtons")
+var PlayView = require("<scripts>/components/PlayView")
 
 var LoopStore = require("<scripts>/stores/LoopStore")
-var ThingStore = require("<scripts>/stores/ThingStore")
 var PlayerActions = require("<scripts>/actions/PlayerActions")
 var DialogueActions = require("<scripts>/actions/DialogueActions")
 
 var Game = React.createClass({
-    mixins: [
-        Reflux.connect(ThingStore, "things")
-    ],
     componentDidMount: function() {
         Hammer.on("swipeleft", function(event) {
             PlayerActions.MovePlayerToNextScene()
@@ -25,9 +20,7 @@ var Game = React.createClass({
     render: function() {
         return (
             <GameFrame ratio="3x4" onClick={DialogueActions.EndDialogue}>
-                {this.state.things}
-                <PlayerButtons/>
-                <DialogueBox/>
+                <PlayView/>
             </GameFrame>
         )
     }
