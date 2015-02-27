@@ -1,6 +1,10 @@
 var PlaythroughActions = require("<scripts>/actions/PlaythroughActions")
 
 var TitleScreen = React.createClass({
+    componentDidMount: function() {
+        var music = new Audio("./assets/music/insearch.mp3");
+        music.play()
+    },
     render: function() {
         return (
             <div className="title screen">

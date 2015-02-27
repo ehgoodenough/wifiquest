@@ -2,6 +2,7 @@ var ThingStore = require("<scripts>/stores/ThingStore")
 var DialogueBox = require("<scripts>/components/DialogueBox")
 var PlayerButtons = require("<scripts>/components/PlayerButtons")
 
+var LoopStore = require("<scripts>/stores/LoopStore")
 var PlayerActions = require("<scripts>/actions/PlayerActions")
 var DialogueActions = require("<scripts>/actions/DialogueActions")
 
