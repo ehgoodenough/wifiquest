@@ -1,0 +1,18 @@
+@mixin stroke($color)
+{
+    $width: 13;
+    $shadow: 0 0 0 transparent;
+
+    @for $r from -5 through 5
+    {
+        @for $c from -5 through 5
+        {
+            $x: $c / ($width * 5);
+            $y: $r / ($width * 5);
+
+            $shadow: #{$shadow}, #{$x}em #{$y}em 0 $color;
+        }
+    }
+
+    text-shadow: $shadow;
+}

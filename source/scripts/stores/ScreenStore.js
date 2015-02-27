@@ -1,11 +1,12 @@
 var PlaythroughActions = require("<source>/scripts/actions/PlaythroughActions")
 
+var SplashScreen = require("<source>/scripts/components/SplashScreen")
 var TitleScreen = require("<source>/scripts/components/TitleScreen")
 var PlaythroughScreen = require("<source>/scripts/components/PlaythroughScreen")
 
 var ScreenStore = Reflux.createStore({
     data: {
-        screen: <TitleScreen/>
+        screen: <SplashScreen/>
     },
     getData: function() {
         return this.data

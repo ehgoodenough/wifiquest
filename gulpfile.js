@@ -63,7 +63,7 @@ gulp.task("markup", function() {
 
 gulp.task("stuffs", function() {
     gulp.src(["./source/**/*", "!./source/**/*.html",
-             "!./source/**/*.js", "!./source/**/*.css"],
+             "!./source/**/*.js", "!./source/**/*.scss"],
              {base: "./source"})
         .pipe(gulp.dest("./gulps"))
         .pipe(gulp_connect.reload())
@@ -101,6 +101,6 @@ gulp.task("watch", ["default"], function() {
     gulp.watch("./source/**/*.scss", ["styles"])
     gulp.watch("./source/index.html", ["markup"])
     gulp.watch(["./source/**/*", "!./source/**/*.html",
-        "!./source/**/*.js", "!./source/**/*.css"], ["stuffs"])
+        "!./source/**/*.js", "!./source/**/*.scss"], ["stuffs"])
     gulp.watch("./package.json", ["configs"])
 })

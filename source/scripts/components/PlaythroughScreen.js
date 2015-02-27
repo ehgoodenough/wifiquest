@@ -11,13 +11,14 @@ var PlaythroughScreen = React.createClass({
     ],
     render: function() {
         return (
-            <div onClick={DialogueActions.EndDialogue}>
+            <div className="playthrough screen"
+                onClick={DialogueActions.EndDialogue}>
                 {this.state.things}
                 <PlayerButtons/>
                 <DialogueBox/>
             </div>
         )
     }
-});
+})
 
 module.exports = PlaythroughScreen

@@ -1,18 +1,11 @@
-@import "./styles/references/Defaults.scss";
 @import "./styles/references/Fonts.scss";
+@import "./styles/references/Mixins.scss";
+@import "./styles/references/Colors.scss";
+@import "./styles/references/Defaults.scss";
+@import "./styles/references/Animations.scss";
 
 @import "./styles/components/GameFrame.scss";
 @import "./styles/components/PlayerButtons.scss";
-@import "./styles/components/Thing.scss";
 @import "./styles/components/DialogueBox.scss";
-
-html
-{
-	background-color: #111;
-    
-    #game-frame
-    {
-        font-family: goldfish;
-        background-color: #99D9EA;
-    }
-}
+@import "./styles/components/Things.scss";
+@import "./styles/components/Screens.scss";
