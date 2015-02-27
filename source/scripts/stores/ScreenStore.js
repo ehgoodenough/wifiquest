@@ -14,6 +14,10 @@ var ScreenStore = Reflux.createStore({
     listenables: [
         PlaythroughActions
     ],
+    onEndSplashing: function() {
+        this.data.screen = <TitleScreen/>
+        this.retrigger()
+    },
     onStartPlaythrough: function() {
         this.data.screen = <PlaythroughScreen/>
         this.retrigger()

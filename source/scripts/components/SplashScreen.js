@@ -1,6 +1,11 @@
 var PlaythroughActions = require("<scripts>/actions/PlaythroughActions")
 
-var TitleScreen = React.createClass({
+var SplashScreen = React.createClass({
+    componentDidMount: function() {
+        window.setTimeout(function() {
+            PlaythroughActions.EndSplashing()
+        }, 700 + 1000 + 1000)
+    },
     render: function() {
         return (
             <div className="splash screen">
@@ -12,4 +17,4 @@ var TitleScreen = React.createClass({
     }
 })
 
-module.exports = TitleScreen
+module.exports = SplashScreen
