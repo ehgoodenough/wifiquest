@@ -21,8 +21,7 @@ var chalk = require("chalk")
 var vinyl_buffer = require("vinyl-buffer")
 var vinyl_source = require("vinyl-source-stream")
 
-gulp.task("scripts", function()
-{
+gulp.task("scripts", function() {
     browserify("./source/index.js")
         .transform("reactify")
         .transform(envify({
@@ -39,7 +38,6 @@ gulp.task("scripts", function()
         }))
         .transform("brfs")
         .bundle()
-        .on("error", on_error)
         .pipe(vinyl_source("index.js"))
         .pipe(vinyl_buffer())
         .pipe(gulp_if(yargs.argv.minify, gulp_uglify()))
@@ -47,37 +45,33 @@ gulp.task("scripts", function()
         .pipe(gulp_connect.reload())
 })
 
-gulp.task("styles", function()
-{
+gulp.task("styles", function() {
     gulp.src("./source/index.scss")
         .pipe(gulp_sass())
-        .on("error", on_error)
         .pipe(gulp_prefixify_css())
         .pipe(gulp_if(yargs.argv.minify, gulp_minify_css()))
         .pipe(gulp.dest("./gulps"))
         .pipe(gulp_connect.reload())
 })
 
-gulp.task("markup", function()
-{
+gulp.task("markup", function() {
     gulp.src("./source/index.html")
         .pipe(gulp_if(yargs.argv.minify, gulp_minify_html()))
         .pipe(gulp.dest("./gulps"))
         .pipe(gulp_connect.reload())
 })
 
-gulp.task("assets", function()
-{
-    gulp.src("./source/assets/**/*", {base: "./source"})
+gulp.task("stuffs", function() {
+    gulp.src(["./source/**/*", "!./source/**/*.html",
+             "!./source/**/*.js", "!./source/**/*.css"],
+             {base: "./source"})
         .pipe(gulp.dest("./gulps"))
         .pipe(gulp_connect.reload())
 })
 
-gulp.task("configs", function()
-{
+gulp.task("configs", function() {
     gulp.src("./package.json")
-        .pipe(gulp_json_transform(function(data)
-        {
+        .pipe(gulp_json_transform(function(data) {
             delete data["dependencies"]
             delete data["devDependencies"]
             return data
@@ -85,16 +79,19 @@ gulp.task("configs", function()
         .pipe(gulp.dest("./gulps"))
 })
 
-gulp.task("default", function()
-{
-    del(["./gulps"], function()
-    {
-        gulp.start(["scripts", "styles", "markup", "assets", "configs"])
+gulp.task("default", function() {
+    del(["./gulps"], function() {
+        gulp.start([
+            "scripts",
+            "styles",
+            "markup", 
+            "stuffs",
+            "configs"
+        ])
     })
 })
 
-gulp.task("watch", ["default"], function()
-{
+gulp.task("watch", ["default"], function() {
     gulp_connect.server({
         root: "./gulps",
         livereload: true
@@ -102,10 +99,8 @@ gulp.task("watch", ["default"], function()
     
     gulp.watch("./source/**/*.js", ["scripts"])
     gulp.watch("./source/**/*.scss", ["styles"])
+    gulp.watch("./source/index.html", ["markup"])
+    gulp.watch(["./source/**/*", "!./source/**/*.html",
+        "!./source/**/*.js", "!./source/**/*.css"], ["stuffs"])
+    gulp.watch("./package.json", ["configs"])
 })
-
-function on_error(error)
-{
-    gulp_util.log(chalk.bold.red(error.message))
-    gulp_util.beep()
-}
