@@ -2,9 +2,8 @@ node_modules
 bower_components
 node_webkit_parts
 
-gulps
-ghpages
-nwapps
+gh-pages
+nw-apps
 
 *.log
 .DS_Store
