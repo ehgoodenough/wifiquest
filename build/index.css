@@ -1,0 +1,210 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    cursor: default;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+    box-sizing: border-box;
+}
+
+@font-face
+{
+    font-family: goldfish;
+    font-style: normal; font-weight: normal;
+	src: url("./assets/fonts/goldfish.eot") format("eot")
+         url("./assets/fonts/goldfish.ttf") format("truetype");
+}
+
+@-webkit-keyframes fadein
+{
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+@keyframes fadein
+{
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+html
+{
+    font-family: goldfish;
+	background-color: #000;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.dialogue-box
+{
+    top: 0.5em;
+    left: 0.5em;
+    right: 0.5em;
+    padding: 0.25em;
+    position: absolute;
+    
+    border-radius: 0.25em;
+    background-color: #EEE;
+
+    -webkit-transition-duration: 0.5s;
+
+            transition-duration: 0.5s;
+    -webkit-transition-property: opacity;
+            transition-property: opacity;
+
+    &.inactive
+    {
+    	opacity: 0;
+    }
+}
+
+.player-button
+{
+    top: 0em;
+    bottom: 0em;
+    margin: auto;
+    width: 1.75em;
+    height: 1.75em;
+    position: absolute;
+    
+    border-radius: 0.2em;
+    background-color: #111;
+    background-size: 1.25em;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+    &.next
+    {
+        right: 0.5em;
+        background-image: url("./assets/images/right-arrow.png")
+    }
+    
+    &.previous
+    {
+        left: 0.5em;
+        background-image: url("./assets/images/left-arrow.png")
+    }
+    
+    -webkit-transition-duration: 0.5s;
+    
+            transition-duration: 0.5s;
+    -webkit-transition-property: opacity;
+            transition-property: opacity;
+        
+    &.inactive
+    {
+        opacity: 0;
+    }
+    
+    &.active:hover
+    {
+        cursor: pointer;
+        background-color: purple;
+    }
+}
+
+.thing
+{
+    position: absolute;
+    
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: bottom left;
+    
+    -webkit-transition-duration: 1.25s;
+    
+            transition-duration: 1.25s;
+    -webkit-transition-property: left;
+            transition-property: left;
+}
+
+
+.screen
+{
+    top: 0em;
+    left: 0em;
+    right: 0em;
+    bottom: 0em;
+    position: absolute;
+}
+
+.splash.screen
+{
+    color: $white;
+    background-color: $black;
+
+    .logo
+    {
+        top: 0em;
+        left: 0em;
+        right: 0em;
+        bottom: 0em;
+        height: 1em;
+        margin: auto;
+        position: absolute;
+
+        font-size: 1.5em;
+        text-align: center;
+
+        opacity: 0;
+
+        -webkit-animation-name: fadein;
+
+                animation-name: fadein;
+        -webkit-animation-iteration-count: 1;
+                animation-iteration-count: 1;
+        -webkit-animation-timing-function: ease;
+                animation-timing-function: ease;
+        -webkit-animation-fill-mode: forwards;
+                animation-fill-mode: forwards;
+        -webkit-animation-duration: 1s;
+                animation-duration: 1s;
+        -webkit-animation-delay: 0.5s;
+                animation-delay: 0.5s;
+    }
+}
+
+.title.screen
+{
+    text-align: center;
+    background-color: #BBE5F1;
+
+    img
+    {
+        margin: 1em 0em;
+        width: 100%;
+    }
+
+    span
+    {
+        color: $white;
+        font-size: 2em;
+        @include stroke($black);
+
+        &:hover
+        {
+            color: red;
+            cursor: pointer;
+        }
+    }
+}
+
+.playthrough.screen
+{
+    background-color: #99D9EA;
+}
+

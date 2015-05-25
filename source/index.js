@@ -1,11 +1,8 @@
 window.React = require("react/addons")
-window.Reflux = require("reflux")
-window.Hammer = new (require("hammerjs"))(document.body)
 window.Screenfull = require("screenfull")
-window.fs = require("fs")
-
-window.Reflux.StoreMethods.getInitialState = function() {if(this.getData) {return this.getData()}}
-window.Reflux.StoreMethods.retrigger = function() {if(this.getData) {this.trigger(this.getData())}}
+window.Keyb = require("keyb")
+window.Phlux = require("phlux")
+window.Tickly = require("tickly")
 
 window.WIDTH = 15
 window.HEIGHT = 20
